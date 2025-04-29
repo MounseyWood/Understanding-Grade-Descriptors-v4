@@ -21,54 +21,58 @@ Copyright (c) 2025 Kingston University. All rights reserved.
 -->
 <html lang="en">
 <head>
+    <!-- 
+    ==============================================
+    CUSTOMIZATION GUIDE - DOCUMENT METADATA
+    ==============================================
+    - Update the title tag to match your specific program or course
+    - Modify meta tags if you need to add additional SEO information
+    -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Interactive guide to understanding grade descriptors for BA (Hons) Fashion program">
     <title>BA (Hons) Fashion - Understanding Grade Descriptors</title>
     
+    <!-- 
+    ==============================================
+    EXTERNAL DEPENDENCIES
+    ==============================================
+    - These scripts load React and Babel from CDN
+    - Only modify these if you need to update to newer versions
+    -->
     <!-- Load React -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/17.0.2/umd/react.production.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.2/umd/react-dom.production.min.js"></script>
     
-    <!-- Load Babel -->
+    <!-- Load Babel to handle JSX -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
     
     <style>
+        /* 
+        ==============================================
+        CUSTOMIZATION GUIDE - BASE STYLING
+        ==============================================
+        This section contains base styling for the document.
+        Faculty can modify colors, spacing, fonts, etc. to match their department branding.
+        
+        COLOR SCHEME - Based on KU and KSA branding
+        - Main Background: #ffffff (white)
+        - Text Color: #333 (dark grey)
+        - Accent Color: #FFF200 (KSA yellow)
+        - Table Header Background: #f1f1f1 (light grey)
+        - Border Color: #ddd (lighter grey)
+        
+        GRADE COLORS - Based on visual grade descriptors color palette
+        */
+        
         /* Base document styling */
-        :root {
-            --ku-yellow: #FFF200;
-            --ku-white: #FFFFFF;
-            --ku-black: #1D1D1B;
-            --ku-blue: #002b49;
-            --ku-light-blue: #009cde;
-            --ku-green: #78be20;
-            --ku-orange: #ffb500;
-            --ku-dark-orange: #e35205;
-            --ku-teal: #77c5d5;
-            --ku-brown: #857550;
-            
-            /* Grade colors */
-            --grade-distinction: #80FF80;
-            --grade-first: #BFFF80;
-            --grade-upper-second: #FFFF80;
-            --grade-lower-second: #FFE880;
-            --grade-third: #FFCC80;
-            --grade-marginal-fail: #FF9980;
-            --grade-fail: #FF8080;
-        }
-        
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        
         body {
             font-family: Arial, sans-serif;
             background-color: #FFFFFF;
-            color: #333;
+            color: #333333;
             line-height: 1.6;
             font-size: 16px;
+            margin: 0;
+            padding: 0;
         }
         
         /* Focus styling for accessibility */
@@ -120,7 +124,7 @@ Copyright (c) 2025 Kingston University. All rights reserved.
         .ku-button {
             display: inline-block;
             background-color: #FFF200;
-            color: #1D1D1B;
+            color: #000000;
             font-weight: bold;
             font-size: 1rem;
             padding: 12px 20px;
@@ -129,7 +133,6 @@ Copyright (c) 2025 Kingston University. All rights reserved.
             margin: 10px 5px;
             border: none;
             cursor: pointer;
-            transition: background-color 0.2s;
             text-align: center;
         }
         
@@ -137,19 +140,14 @@ Copyright (c) 2025 Kingston University. All rights reserved.
             background-color: #E6D900;
         }
         
-        .ku-button:focus {
-            outline: 3px solid #1D1D1B;
-            outline-offset: 2px;
-        }
-        
         /* Footer styling */
         .footer {
             text-align: center;
             margin-top: 30px;
             padding: 20px;
-            color: #666;
+            color: #666666;
             font-size: 0.9rem;
-            border-top: 1px solid #eee;
+            border-top: 1px solid #eeeeee;
         }
         
         /* Table styling */
@@ -163,13 +161,13 @@ Copyright (c) 2025 Kingston University. All rights reserved.
             background-color: #f1f1f1;
             text-align: left;
             padding: 12px;
-            border: 1px solid #ddd;
+            border: 1px solid #dddddd;
             font-weight: bold;
         }
         
         td {
             padding: 12px;
-            border: 1px solid #ddd;
+            border: 1px solid #dddddd;
             vertical-align: top;
         }
         
@@ -187,7 +185,6 @@ Copyright (c) 2025 Kingston University. All rights reserved.
             font-weight: 500;
             cursor: pointer;
             margin: 4px;
-            transition: all 0.2s;
             border: none;
         }
         
@@ -196,7 +193,7 @@ Copyright (c) 2025 Kingston University. All rights reserved.
         }
         
         .grade-button.active {
-            outline: 2px solid #666;
+            outline: 2px solid #666666;
             outline-offset: 2px;
         }
         
@@ -252,13 +249,12 @@ Copyright (c) 2025 Kingston University. All rights reserved.
         }
         
         .modal-content {
-            background-color: white;
+            background-color: #FFFFFF;
             padding: 24px;
             width: 90%;
             height: 90%;
             overflow: auto;
             position: relative;
-            border-radius: 0;
         }
         
         .modal-close {
@@ -269,41 +265,7 @@ Copyright (c) 2025 Kingston University. All rights reserved.
             border: none;
             font-size: 24px;
             cursor: pointer;
-            color: #666;
-        }
-        
-        .modal-close:hover {
-            color: #333;
-        }
-        
-        /* Responsive design */
-        @media screen and (max-width: 768px) {
-            .ku-content {
-                padding: 15px;
-            }
-            
-            .ku-button {
-                display: block;
-                width: 100%;
-                margin: 10px 0;
-            }
-            
-            .grade-buttons-container {
-                flex-direction: column;
-            }
-            
-            .grade-button {
-                width: 100%;
-                margin: 4px 0;
-            }
-            
-            table {
-                font-size: 14px;
-            }
-            
-            th, td {
-                padding: 8px;
-            }
+            color: #666666;
         }
         
         /* Additional styles for better accessibility */
@@ -319,13 +281,12 @@ Copyright (c) 2025 Kingston University. All rights reserved.
             background-color: #f9f9f9;
             padding: 20px;
             margin-top: 20px;
-            border: 1px solid #ddd;
+            border: 1px solid #dddddd;
         }
         
         .grade-header {
             padding: 16px;
             margin-bottom: 20px;
-            border-radius: 0;
         }
         
         /* Utility classes */
@@ -349,10 +310,6 @@ Copyright (c) 2025 Kingston University. All rights reserved.
             align-items: center;
         }
         
-        .gap-2 {
-            gap: 0.5rem;
-        }
-        
         .mb-6 {
             margin-bottom: 1.5rem;
         }
@@ -373,10 +330,6 @@ Copyright (c) 2025 Kingston University. All rights reserved.
             margin-top: 1rem;
         }
         
-        .text-center {
-            text-align: center;
-        }
-        
         .font-bold {
             font-weight: bold;
         }
@@ -389,10 +342,6 @@ Copyright (c) 2025 Kingston University. All rights reserved.
             font-size: 1.125rem;
         }
         
-        .space-y-2 > * + * {
-            margin-top: 0.5rem;
-        }
-        
         .list-disc {
             list-style-type: disc;
         }
@@ -400,11 +349,44 @@ Copyright (c) 2025 Kingston University. All rights reserved.
         .pl-5 {
             padding-left: 1.25rem;
         }
+        
+        /* Media queries for mobile devices */
+        @media (max-width: 768px) {
+            .ku-content {
+                padding: 15px;
+            }
+            
+            .ku-button {
+                display: block;
+                width: 100%;
+                margin: 10px 0;
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- 
+    ==============================================
+    MAIN CONTENT CONTAINER
+    ==============================================
+    This is the main wrapper for all content.
+    -->
     <div class="ku-content-wrapper">
+        <!-- 
+        ==============================================
+        CONTENT SECTION
+        ==============================================
+        Contains the header and React application.
+        -->
         <div class="ku-content">
+            <!-- 
+            ==============================================
+            HEADER SECTION
+            ==============================================
+            CUSTOMIZATION:
+            - Update the image src to your saved image path
+            - Modify the title and descriptive text as needed
+            -->
             <div class="header">
                 <img src="understanding_grade_descriptors_BA_Fashion.png" alt="Kingston School of Art - Understanding Grade Descriptors" width="400" height="150">
                 <h1 id="page-title">Understanding Grade Descriptors</h1>
@@ -415,18 +397,45 @@ Copyright (c) 2025 Kingston University. All rights reserved.
             <div id="grade-descriptors-app" role="main"></div>
         </div>
         
+        <!-- 
+        ==============================================
+        FOOTER SECTION
+        ==============================================
+        CUSTOMIZATION:
+        - Update the text with your school/faculty and program name
+        - Update the copyright year as needed
+        -->
         <div class="footer">
             <p>Kingston School of Art - BA (Hons) Fashion Program - Learning Outcomes, Feedback and Assessment Knowledge Base</p>
             <p>&copy; 2025 Kingston University</p>
         </div>
     </div>
     
+    <!-- 
+    ==============================================
+    REACT APPLICATION SCRIPT
+    ==============================================
+    This script contains the React components that power the interactive guide.
+    
+    CUSTOMIZATION GUIDE:
+    1. Grade bands: Faculty can modify the 'grades' array to adjust titles, ranges, colors, etc.
+    2. Assessment criteria: Faculty can modify the 'qualities' array within each grade object
+    3. Improvement advice: Faculty can customize the advice for moving to the next grade band
+    -->
     <script type="text/babel">
         // Import React hooks
         const { useState, useRef, useEffect } = React;
         
         /**
          * Main Grade Descriptors Application Component
+         * 
+         * This component renders the interactive grade descriptors tool,
+         * allowing students to explore different grade bands and understand
+         * assessment criteria.
+         * 
+         * @author Matthew Mounsey-Wood <m.mounsey-wood@kingston.ac.uk>
+         * @created April 29, 2025
+         * @version 1.0
          */
         const GradeDescriptors = () => {
             // State for tracking the currently selected grade
@@ -438,6 +447,15 @@ Copyright (c) 2025 Kingston University. All rights reserved.
             
             /**
              * Grade bands data
+             * 
+             * This array contains all grade bands with their associated data.
+             * Each grade has:
+             * - id: Unique identifier used for selection
+             * - title: Display name shown to users
+             * - range: Percentage range text
+             * - color: CSS color class (defined in the stylesheet)
+             * - textColor: Text color class for contrast
+             * - qualities: Array of assessment criteria objects
              */
             const grades = [
                 {
@@ -629,6 +647,7 @@ Copyright (c) 2025 Kingston University. All rights reserved.
             
             /**
              * Handler for keyboard events in the modal
+             * Closes the modal when Escape key is pressed
              */
             const handleKeyDown = (e) => {
                 if (e.key === 'Escape') {
@@ -657,7 +676,7 @@ Copyright (c) 2025 Kingston University. All rights reserved.
                     {/* Grade selection buttons */}
                     <div aria-labelledby="grade-buttons-heading" role="region">
                         <h2 id="grade-buttons-heading" className="visually-hidden">Select Grade Band</h2>
-                        <div className="flex flex-wrap justify-center gap-2 mb-6">
+                        <div className="flex flex-wrap justify-center mb-6">
                             {grades.map(grade => (
                                 <button
                                     key={grade.id}
@@ -699,7 +718,7 @@ Copyright (c) 2025 Kingston University. All rights reserved.
                     {/* Improvement advice section */}
                     <div className="improvement-section" aria-labelledby="improvement-heading">
                         <h2 id="improvement-heading" className="font-bold mb-4">How to move up to the next grade band:</h2>
-                        <ul className="list-disc pl-5 space-y-2">
+                        <ul className="list-disc pl-5">
                             {activeGrade === 'fail' && (
                                 <>
                                     <li>Research: Start gathering information from reliable sources and include these references in your work. Build basic knowledge of key concepts and practices.</li>
@@ -822,10 +841,10 @@ Copyright (c) 2025 Kingston University. All rights reserved.
                                     </button>
                                 </div>
                                 
-                                <div className="mb-4 p-4 bg-gray-50 border border-gray-200">
-                                    <h3 className="font-bold mb-2">Learning Outcomes & Assessment Criteria</h3>
-                                    <p className="mb-2">Each criterion in the matrix relates to one of the 4 program learning outcomes:</p>
-                                    <ol className="list-decimal pl-5">
+                                <div style={{margin: "0 0 1rem 0", padding: "1rem", backgroundColor: "#f9f9f9", border: "1px solid #dddddd"}}>
+                                    <h3 style={{fontWeight: "bold", marginBottom: "0.5rem"}}>Learning Outcomes & Assessment Criteria</h3>
+                                    <p style={{marginBottom: "0.5rem"}}>Each criterion in the matrix relates to one of the 4 program learning outcomes:</p>
+                                    <ol style={{listStyleType: "decimal", paddingLeft: "1.25rem"}}>
                                         <li><strong>Research and Analysis:</strong> Critical examination of context and interpretation of sources</li>
                                         <li><strong>Experimentation and Practice:</strong> Testing of subject, thinking through making, technique, risk taking and problem solving</li>
                                         <li><strong>Communication and Presentation:</strong> Realisation of intentions and skill in appropriate media with awareness of audience needs</li>
@@ -835,7 +854,7 @@ Copyright (c) 2025 Kingston University. All rights reserved.
                                 
                                 <div style={{overflowX: "auto"}}>
                                     <table>
-                                        <caption className="visually-hidden">Complete Grade Descriptors Matrix</caption>
+                                        <caption style={{display: "none"}}>Complete Grade Descriptors Matrix</caption>
                                         <thead>
                                             <tr>
                                                 <th scope="col">Criteria</th>
@@ -895,7 +914,7 @@ Copyright (c) 2025 Kingston University. All rights reserved.
                                     </table>
                                 </div>
                                 
-                                <div className="mt-4 text-center">
+                                <div style={{marginTop: "1rem", textAlign: "center"}}>
                                     <button 
                                         className="ku-button"
                                         onClick={() => setShowMatrix(false)}
