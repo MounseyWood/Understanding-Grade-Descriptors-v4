@@ -1,4 +1,24 @@
 <!DOCTYPE html>
+<!--
+=======================================================================
+Kingston University London, Kingston School of Art, School of Design.
+Learning Outcomes, Feedback and Assessment Knowledge Base
+Department of Fashion
+BA (Hons) Fashion program - Understanding Grade Descriptors
+=======================================================================
+Author: Matthew Mounsey-Wood
+Email: m.mounsey-wood@kingston.ac.uk
+Created: April 29, 2025
+Last Modified: April 29, 2025
+Version: 1.0
+
+Description:
+An interactive tool for understanding grade descriptors on the
+BA (Hons) Fashion program at Kingston University London.
+
+Copyright (c) 2025 Kingston University. All rights reserved.
+=======================================================================
+-->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -267,7 +287,10 @@
         */
         .modal-backdrop {
             position: fixed;
-            inset: 0; /* shorthand for top, right, bottom, left */
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
             background-color: rgba(0, 0, 0, 0.5);
             display: flex;
             justify-content: center;
@@ -357,6 +380,79 @@
             padding: 16px;
             margin-bottom: 20px;
             border-radius: 0;
+        }
+        
+        /* Flex utilities */
+        .flex {
+            display: flex;
+        }
+        
+        .flex-wrap {
+            flex-wrap: wrap;
+        }
+        
+        .justify-center {
+            justify-content: center;
+        }
+        
+        .justify-between {
+            justify-content: space-between;
+        }
+        
+        .items-center {
+            align-items: center;
+        }
+        
+        .gap-2 {
+            gap: 0.5rem;
+        }
+        
+        .mb-6 {
+            margin-bottom: 1.5rem;
+        }
+        
+        .mb-4 {
+            margin-bottom: 1rem;
+        }
+        
+        .mb-2 {
+            margin-bottom: 0.5rem;
+        }
+        
+        .mt-6 {
+            margin-top: 1.5rem;
+        }
+        
+        .mt-4 {
+            margin-top: 1rem;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .font-bold {
+            font-weight: bold;
+        }
+        
+        .text-xl {
+            font-size: 1.25rem;
+        }
+        
+        .text-lg {
+            font-size: 1.125rem;
+        }
+        
+        .space-y-2 > * + * {
+            margin-top: 0.5rem;
+        }
+        
+        .list-disc {
+            list-style-type: disc;
+        }
+        
+        .pl-5 {
+            padding-left: 1.25rem;
         }
     </style>
 </head>
