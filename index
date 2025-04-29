@@ -28,7 +28,7 @@ Copyright (c) 2025 Kingston University. All rights reserved.
     - Modify meta tags if you need to add additional SEO information
     -->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>BA (Hons) Fashion - Understanding Grade Descriptors</title>
     <!-- 
     ==============================================
@@ -37,9 +37,13 @@ Copyright (c) 2025 Kingston University. All rights reserved.
     - These scripts load React and Babel from CDN
     - Only modify these if you need to update to newer versions
     -->
+     <!-- Add proper Inter font import -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- Load React -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/17.0.2/umd/react.production.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.2/umd/react-dom.production.min.js"></script>   
+    <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react/17.0.2/umd/react.production.min.js"></script>
+    <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.2/umd/react-dom.production.min.js"></script>  
     <!-- Load Babel to handle JSX -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
     <!-- Tailwind CSS for styling -->
@@ -76,6 +80,7 @@ Copyright (c) 2025 Kingston University. All rights reserved.
             max-width: 1200px; /* CUSTOMIZE: Adjust for wider/narrower layout */
             margin: 0 auto;
             padding: 20px;
+            text-size-adjust: 100%; /* Replace webkit prefix */
         }
         /* CUSTOMIZE: Main content area styling */
         .ku-content {
